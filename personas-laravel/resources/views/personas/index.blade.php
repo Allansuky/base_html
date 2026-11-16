@@ -3,11 +3,11 @@
 <h1>Personas registradas</h1>
 <table>
 <thead><tr>
+<th>ID</th><th>DNI</th><th>Nombre</th><th>Nacimiento</th>
 </tr></thead>
 <tbody>
 @forelse ($personas as $persona)
 <tr>
-<th>ID</th><th>DNI</th><th>Nombre</th><th>Nacimiento</th>
 <td>{{ $persona->id }}</td>
 <td>{{ $persona->dni }}</td>
 <td>{{ $persona->nombre }}</td>
