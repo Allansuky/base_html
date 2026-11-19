@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('contenido')
 <h1>Personas registradas</h1>
+<p><a href="{{ route('personas.create') }}">Crear persona</a></p>
 <table>
 <thead><tr>
 <th>ID</th><th>DNI</th><th>Nombre</th><th>Nacimiento</th>
