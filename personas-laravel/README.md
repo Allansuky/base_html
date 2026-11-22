@@ -1,3 +1,34 @@
+# Registro de personas
+
+Aplicación Laravel con inicio de sesión y CRUD de personas usando únicamente datos ficticios.
+
+## Componentes del proyecto
+
+- **Migraciones:** crean las tablas `users` y `personas` con `php artisan migrate`.
+- **Seeders y factory:** `UsuarioDemoSeeder` crea el usuario de práctica y `PersonaSeeder`, mediante `PersonaFactory`, genera personas de ejemplo con `php artisan db:seed`.
+- **Modelo:** `Persona` representa cada fila de `personas`; Eloquent consulta, guarda, actualiza y elimina registros.
+- **Vistas Blade:** `index`, `create` y `edit` generan el listado y formularios HTML; el layout muestra mensajes y errores.
+- **Sesión:** Laravel conserva el usuario autenticado después del login y el mensaje flash de cada operación.
+- **CSRF:** `@csrf` agrega el token requerido en los formularios POST, PUT y DELETE.
+
+## Rutas HTTP del CRUD
+
+- **GET** `/personas`: muestra el listado; **GET** `/personas/crear` y `/personas/{id}/editar` muestran formularios.
+- **POST** `/personas`: guarda una persona nueva. El POST `/login` autentica y el POST `/logout` cierra la sesión.
+- **PUT** `/personas/{id}`: actualiza una persona existente. Blade usa `@method('PUT')` porque los formularios HTML envían POST.
+- **DELETE** `/personas/{id}`: elimina una persona tras la confirmación del usuario, mediante `@method('DELETE')`.
+
+## Ejecutar localmente
+
+```bash
+php artisan migrate --seed
+php artisan serve
+```
+
+Abra `http://127.0.0.1:8000/login`. El usuario de demostración es `admin@clase.test` y la contraseña es `Clase2026!`.
+
+---
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
