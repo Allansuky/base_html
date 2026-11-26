@@ -25,4 +25,21 @@ class MascotaController
         Mascota::create($datos);
         return redirect()->route('inicio')->with('estado', 'Mascota creada correctamente.');
     }
+    public function edit(int $id)
+    {
+        return view('mascotas.edit', ['mascota' => Mascota::findOrFail($id)]);
+    }
+    public function update(Request $request, int $id)
+    {
+        $mascota = Mascota::findOrFail($id);
+        $datos = $request->validate([
+            'codigo' => ['required', 'string', 'max:255', Rule::unique('mascotas', 'codigo')->ignore($mascota)],
+            'nombre' => ['required', 'string', 'max:80'],
+            'especie' => ['required', Rule::in(['perro', 'gato', 'otro'])],
+            'propietario' => ['required', 'string', 'max:100'],
+            'fecha_nacimiento' => ['required', 'date', 'before_or_equal:today'],
+        ]);
+        $mascota->update($datos);
+        return redirect()->route('inicio')->with('estado', 'Mascota actualizada correctamente.');
+    }
 }
