@@ -40,4 +40,10 @@ class EstudianteController
         $estudiante->update($datos);
         return redirect()->route('inicio')->with('estado', 'Estudiante actualizado correctamente.');
     }
+    public function destroy(int $id)
+    {
+        $estudiante = Estudiante::findOrFail($id);
+        $estudiante->delete();
+        return redirect()->route('inicio')->with('estado', 'Estudiante eliminado correctamente.');
+    }
 }

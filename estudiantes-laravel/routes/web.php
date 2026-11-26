@@ -13,5 +13,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/estudiantes', [EstudianteController::class, 'store'])->name('estudiantes.store');
     Route::get('/estudiantes/{id}/editar', [EstudianteController::class, 'edit'])->whereNumber('id')->name('estudiantes.edit');
     Route::put('/estudiantes/{id}', [EstudianteController::class, 'update'])->whereNumber('id')->name('estudiantes.update');
+    Route::delete('/estudiantes/{id}', [EstudianteController::class, 'destroy'])->whereNumber('id')->name('estudiantes.destroy');
     Route::post('/logout', [SesionController::class, 'destroy'])->name('logout');
 });
