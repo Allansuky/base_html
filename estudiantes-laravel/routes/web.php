@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\SesionController;
+use App\Http\Controllers\EstudianteController;
 use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/inicio');
 Route::middleware('guest')->group(function () {
@@ -7,6 +8,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [SesionController::class, 'store'])->middleware('throttle:10,1');
 });
 Route::middleware('auth')->group(function () {
-    Route::view('/inicio', 'inicio')->name('inicio');
+    Route::get('/inicio', [EstudianteController::class, 'index'])->name('inicio');
     Route::post('/logout', [SesionController::class, 'destroy'])->name('logout');
 });
