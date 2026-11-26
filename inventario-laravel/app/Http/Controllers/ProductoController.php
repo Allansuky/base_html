@@ -40,4 +40,10 @@ class ProductoController
         $producto->update($datos);
         return redirect()->route('inicio')->with('estado', 'Producto actualizado correctamente.');
     }
+    public function destroy(int $id)
+    {
+        $producto = Producto::findOrFail($id);
+        $producto->delete();
+        return redirect()->route('inicio')->with('estado', 'Producto eliminado correctamente.');
+    }
 }
