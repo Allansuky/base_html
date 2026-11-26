@@ -11,5 +11,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/inicio', [EstudianteController::class, 'index'])->name('inicio');
     Route::get('/estudiantes/crear', [EstudianteController::class, 'create'])->name('estudiantes.create');
     Route::post('/estudiantes', [EstudianteController::class, 'store'])->name('estudiantes.store');
+    Route::get('/estudiantes/{id}/editar', [EstudianteController::class, 'edit'])->whereNumber('id')->name('estudiantes.edit');
+    Route::put('/estudiantes/{id}', [EstudianteController::class, 'update'])->whereNumber('id')->name('estudiantes.update');
     Route::post('/logout', [SesionController::class, 'destroy'])->name('logout');
 });
