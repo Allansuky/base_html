@@ -42,4 +42,10 @@ class MascotaController
         $mascota->update($datos);
         return redirect()->route('inicio')->with('estado', 'Mascota actualizada correctamente.');
     }
+    public function destroy(int $id)
+    {
+        $mascota = Mascota::findOrFail($id);
+        $mascota->delete();
+        return redirect()->route('inicio')->with('estado', 'Mascota eliminada correctamente.');
+    }
 }

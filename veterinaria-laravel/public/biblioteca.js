@@ -1,6 +1,6 @@
 document.querySelectorAll('form[data-confirmar]').forEach((formulario) => {
     formulario.addEventListener('submit', (evento) => {
-        if (!window.confirm('¿Confirmas que deseas eliminar este estudiante?')) {
+        if (!window.confirm('¿Confirmas que deseas eliminar esta mascota?')) {
             evento.preventDefault();
         }
     });
