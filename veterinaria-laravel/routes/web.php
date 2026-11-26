@@ -9,5 +9,7 @@ Route::middleware('guest')->group(function () {
 });
 Route::middleware('auth')->group(function () {
     Route::get('/inicio', [MascotaController::class, 'index'])->name('inicio');
+    Route::get('/mascotas/crear', [MascotaController::class, 'create'])->name('mascotas.create');
+    Route::post('/mascotas', [MascotaController::class, 'store'])->name('mascotas.store');
     Route::post('/logout', [SesionController::class, 'destroy'])->name('logout');
 });
