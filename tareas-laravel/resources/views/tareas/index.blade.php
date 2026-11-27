@@ -8,7 +8,14 @@
 <thead><tr><th>ID</th><th>Título</th><th>Descripción</th><th>Responsable</th><th>Fecha límite</th><th>Estado</th><th>Acciones</th></tr></thead>
 <tbody>
 @forelse ($tareas as $tarea)
-<tr><td>{{ $tarea->id }}</td><td>{{ $tarea->titulo }}</td><td>{{ $tarea->descripcion }}</td><td>{{ $tarea->responsable }}</td><td>{{ $tarea->fecha_limite->format('d/m/Y') }}</td><td>{{ $tarea->estado }}</td><td><a href="{{ route('tareas.edit', $tarea->id) }}">Editar</a></td></tr>
+<tr><td>{{ $tarea->id }}</td><td>{{ $tarea->titulo }}</td><td>{{ $tarea->descripcion }}</td><td>{{ $tarea->responsable }}</td><td>{{ $tarea->fecha_limite->format('d/m/Y') }}</td><td>{{ $tarea->estado }}</td><td>
+<a href="{{ route('tareas.edit', $tarea->id) }}">Editar</a>
+<form method="POST" action="{{ route('tareas.destroy', $tarea->id) }}" data-confirmar>
+@csrf
+@method('DELETE')
+<button type="submit">Eliminar</button>
+</form>
+</td></tr>
 @empty
 <tr><td colspan="7">No hay tareas registradas.</td></tr>
 @endforelse

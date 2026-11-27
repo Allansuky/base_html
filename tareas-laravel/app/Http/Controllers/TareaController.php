@@ -42,4 +42,10 @@ class TareaController
         $tarea->update($datos);
         return redirect()->route('inicio')->with('estado', 'Tarea actualizada correctamente.');
     }
+    public function destroy(int $id)
+    {
+        $tarea = Tarea::findOrFail($id);
+        $tarea->delete();
+        return redirect()->route('inicio')->with('estado', 'Tarea eliminada correctamente.');
+    }
 }
