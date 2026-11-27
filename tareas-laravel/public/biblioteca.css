@@ -1,0 +1,62 @@
+:root {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: #19322d;
+    background: #f3f5ef;
+    font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.ancho { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
+.barra { background: #fff; border-bottom: 1px solid #dbe4da; }
+.cabecera { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.marca { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 750; font-size: 20px; }
+.logo { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: #215c4b; color: white; font: bold 24px Georgia, serif; }
+.cuenta, .acciones { display: flex; align-items: center; gap: 14px; }
+.cuenta > span { color: #4c6359; font-size: 14px; }
+main { padding-block: 45px; }
+.encabezado { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 24px; }
+h1 { font: bold clamp(30px, 4vw, 45px)/1.1 Georgia, serif; margin: 0; letter-spacing: -0.035em; }
+p { color: #4c6359; margin: 10px 0 0; line-height: 1.5; }
+.panel { background: white; border: 1px solid #dbe4da; border-radius: 14px; box-shadow: 0 8px 30px #19322d08; }
+.tabla { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 12px 14px; text-align: left; }
+thead { background: #e6efe7; }
+thead th { white-space: nowrap; font-size: 13px; }
+tbody tr + tr { border-top: 1px solid #e8ede7; }
+tbody tr:hover { background: #f9fbf8; }
+tbody th { font-weight: 650; }
+.dato { font-variant-numeric: tabular-nums; }
+.fecha { white-space: nowrap; color: #4c6359; font-size: 12px; }
+.codigo { white-space: nowrap; font: 12px Consolas, monospace; background: #edf2e9; padding: 4px 6px; border-radius: 5px; }
+.boton { display: inline-flex; align-items: center; justify-content: center; padding: 10px 15px; border: 1px solid transparent; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 650; white-space: nowrap; }
+.principal { background: #215c4b; color: white; }
+.principal:hover { background: #174637; }
+.secundario { background: white; border-color: #c8d5ca; color: #254638; }
+.secundario:hover { background: #edf2e9; }
+.editar, .eliminar { padding: 0; border: 0; background: transparent; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
+.editar { color: #215c4b; }
+.eliminar, .error { color: #9a3030; }
+.estado { padding: 11px 14px; margin: 0 0 16px; background: #e1f0e6; border-radius: 8px; }
+.vacio { text-align: center; padding: 32px; }
+.acceso { display: grid; min-height: calc(100svh - 73px); place-items: center; }
+.tarjeta { width: min(100%, 550px); padding: clamp(22px, 4vw, 36px); }
+.acceso .tarjeta { width: min(100%, 435px); }
+.acceso h1 { font-size: 36px; }
+.campos { display: grid; gap: 17px; }
+.acceso form { margin-top: 25px; }
+label { display: block; font-weight: 650; margin-bottom: 6px; }
+input { display: block; width: 100%; border: 1px solid #82988a; background: #fcfdfb; border-radius: 8px; padding: 10px 12px; color: inherit; }
+input[aria-invalid="true"] { border-color: #9a3030; }
+.error { font-size: 14px; margin-top: 4px; }
+:focus-visible { outline: 2px solid #215c4b; outline-offset: 3px; }
+@media (max-width: 560px) {
+    .ancho { width: calc(100% - 28px); }
+    main { padding-block: 28px; }
+    .encabezado { align-items: flex-start; flex-direction: column; }
+    .cuenta > span { display: none; }
+}
