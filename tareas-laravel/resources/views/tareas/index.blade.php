@@ -2,6 +2,8 @@
 @section('titulo', 'Tareas')
 @section('contenido')
 <h1>Control de tareas</h1>
+<p><a href="{{ route('tareas.create') }}">Crear tarea</a></p>
+@if (session('estado')) <p class="estado">{{ session('estado') }}</p> @endif
 <div class="panel tabla"><table>
 <thead><tr><th>ID</th><th>Título</th><th>Descripción</th><th>Responsable</th><th>Fecha límite</th><th>Estado</th></tr></thead>
 <tbody>
