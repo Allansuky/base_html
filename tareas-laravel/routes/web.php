@@ -11,5 +11,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/inicio', [TareaController::class, 'index'])->name('inicio');
     Route::get('/tareas/crear', [TareaController::class, 'create'])->name('tareas.create');
     Route::post('/tareas', [TareaController::class, 'store'])->name('tareas.store');
+    Route::get('/tareas/{id}/editar', [TareaController::class, 'edit'])->whereNumber('id')->name('tareas.edit');
+    Route::put('/tareas/{id}', [TareaController::class, 'update'])->whereNumber('id')->name('tareas.update');
     Route::post('/logout', [SesionController::class, 'destroy'])->name('logout');
 });

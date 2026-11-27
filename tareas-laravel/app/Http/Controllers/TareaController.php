@@ -25,4 +25,21 @@ class TareaController
         Tarea::create($datos);
         return redirect()->route('inicio')->with('estado', 'Tarea creada correctamente.');
     }
+    public function edit(int $id)
+    {
+        return view('tareas.edit', ['tarea' => Tarea::findOrFail($id)]);
+    }
+    public function update(Request $request, int $id)
+    {
+        $tarea = Tarea::findOrFail($id);
+        $datos = $request->validate([
+            'titulo' => ['required', 'string', 'max:150'],
+            'descripcion' => ['required', 'string', 'max:500'],
+            'responsable' => ['required', 'string', 'max:100'],
+            'fecha_limite' => ['required', 'date'],
+            'estado' => ['required', Rule::in(['pendiente', 'en proceso', 'completada'])],
+        ]);
+        $tarea->update($datos);
+        return redirect()->route('inicio')->with('estado', 'Tarea actualizada correctamente.');
+    }
 }
